@@ -1,0 +1,68 @@
+@use "../utils/abstracts" as *;
+
+.header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+	padding: 2rem 0;
+    color: $c-FFFFFF;
+	&__container {
+		@include content-width();
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+	}
+	&__logo {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		&-wrapper {
+			width: rem(280);
+		}
+	}
+	&__nav {
+		display: flex;
+		align-items: center;
+		gap: 2rem;
+	}
+	&__lang {
+		position: relative;
+		user-select: none;
+
+		&-current {
+			cursor: pointer;
+			display: flex;
+			align-items: center;
+            gap: 0.5rem;
+
+			&--icon {
+                font-size: rem(12);
+				transition: $duration;
+			}
+		}
+
+		&.open {
+			.header__lang-list {
+                gap: 1rem;
+                opacity: 1;
+			}
+		}
+
+		&-list {
+            width: 100%;
+			position: absolute;
+			top: 100%;
+			left: 0;
+			z-index: 10;
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            padding: 1rem 0;
+            transition: $duration;
+            opacity: 0;
+            &-item {
+                cursor: pointer;
+            }
+		}
+	}
+}

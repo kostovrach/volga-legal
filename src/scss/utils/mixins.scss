@@ -1,0 +1,10 @@
+@mixin flex-center() {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+@mixin content-width() {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0 64px;
+}
