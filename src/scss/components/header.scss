@@ -1,11 +1,12 @@
 @use "../utils/abstracts" as *;
 
 .header {
-    position: fixed;
-    top: 0;
-    width: 100%;
+	position: fixed;
+	top: 0;
+	z-index: 5;
+	width: 100%;
 	padding: 2rem 0;
-    color: $c-FFFFFF;
+	color: $c-FFFFFF;
 	&__container {
 		@include content-width();
 		display: flex;
@@ -24,6 +25,9 @@
 		display: flex;
 		align-items: center;
 		gap: 2rem;
+		&-item {
+			@include hover-underline();
+		}
 	}
 	&__lang {
 		position: relative;
@@ -33,36 +37,39 @@
 			cursor: pointer;
 			display: flex;
 			align-items: center;
-            gap: 0.5rem;
-
+			gap: 0.5rem;
+			@include icon-hover(vertical);
 			&--icon {
-                font-size: rem(12);
+				font-size: rem(12);
 				transition: $duration;
 			}
 		}
 
 		&.open {
 			.header__lang-list {
-                gap: 1rem;
-                opacity: 1;
+				gap: 1rem;
+				opacity: 1;
+				pointer-events: auto;
 			}
 		}
 
 		&-list {
-            width: 100%;
+			width: 100%;
 			position: absolute;
 			top: 100%;
 			left: 0;
 			z-index: 10;
-            display: flex;
-            flex-direction: column;
-            gap: 2rem;
-            padding: 1rem 0;
-            transition: $duration;
-            opacity: 0;
-            &-item {
-                cursor: pointer;
-            }
+			display: flex;
+			flex-direction: column;
+			gap: 2rem;
+			padding: 1rem 0;
+			transition: $duration;
+			opacity: 0;
+			pointer-events: none;
+			&-item {
+				@include hover-underline();
+				cursor: pointer;
+			}
 		}
 	}
 }

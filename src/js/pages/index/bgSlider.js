@@ -9,7 +9,7 @@ const bgSliderParams = {
 	effect: "creative",
 	creativeEffect: {
 		next: {
-			translate: ["100%", 0, 0],
+			translate: ["-100%", 0, 0],
 		},
 	},
 };
