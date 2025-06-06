@@ -1,0 +1,10 @@
+@use "../utils/abstracts" as *;
+
+.decorative-wave {
+	width: 100%;
+	height: rem(300);
+	background-image: url(../../assets/images/decorative-wave.jpg);
+	background-size: cover;
+	background-position: center;
+	background-attachment: fixed;
+}

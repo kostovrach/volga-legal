@@ -13,14 +13,6 @@
 	-webkit-box-sizing: inherit;
 	box-sizing: inherit;
 }
-:focus,
-:active {
-	outline: none;
-}
-a:focus,
-a:active {
-	outline: none;
-}
 aside,
 nav,
 footer,
@@ -132,4 +124,10 @@ dialog::backdrop {
 	position: fixed;
 	inset: 0;
 	background: transparent;
+}
+
+.swiper-wrapper {
+  -webkit-transition-timing-function:linear !important; 
+  -o-transition-timing-function:linear !important;
+  transition-timing-function:linear !important;
 }
