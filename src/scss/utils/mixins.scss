@@ -1,15 +1,18 @@
 @use "variables" as *;
 @use "functions" as *;
 
-@mixin flex-center() {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-}
 @mixin content-width() {
 	max-width: 1440px;
 	margin: 0 auto;
 	padding: 0 64px;
+	@media (max-width: 768px) {
+		padding: 0 1rem;
+	}
+}
+@mixin flex-center() {
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 @mixin gradient-text($gradient: linear-gradient(90deg, $c-47A640, $c-066C6B), $fallback-color: $c-47A640) {
 	color: $fallback-color;

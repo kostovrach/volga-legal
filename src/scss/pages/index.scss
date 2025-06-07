@@ -5,11 +5,11 @@
 	//min-height: 100vh;
 	overflow: hidden;
 	&__container {
-		@include content-width();
-		@include flex-center();
+		display: flex;
 		align-items: flex-end;
 		width: 100%;
 		min-height: 100vh;
+		@include content-width();
 	}
 	&__slider-container {
 		position: absolute;
@@ -50,9 +50,9 @@
 		width: 100%;
 		height: 100%;
 		&-container {
-			@include flex-center();
 			width: 100%;
 			height: 100%;
+			@include flex-center();
 		}
 		&-image-container {
 			position: absolute;
@@ -68,8 +68,9 @@
 			object-fit: cover;
 		}
 		&-titlebox {
-			width: 60%;
-			padding-left: 43%;
+			width: 100%;
+			max-width: 42rem;
+			padding-left: 27%;
 			color: $c-FFFFFF;
 			opacity: 0.8;
 			display: flex;
@@ -78,6 +79,10 @@
 		}
 		&-title {
 			font-size: rem(32);
+			font-size: lineScale(32,22,480,1440);
+		}
+		&-desc {
+			font-size: lineScale(16,14,480,1440);
 		}
 	}
 	&__advant {
@@ -170,13 +175,15 @@
 	}
 	&__itembox {
 		grid-column: span 2;
-		display: grid;
-		grid-template-columns: repeat(3, 1fr);
+		display: flex;
+		flex-wrap: wrap;
 		gap: 1rem;
 	}
 	&__item {
+		flex: 30%;
 		color: $c-FFFFFF;
 		text-wrap: wrap;
+		min-width: rem(300);
 		height: rem(250);
 		position: relative;
 		display: flex;
@@ -250,11 +257,10 @@
 	&__item {
 		counter-increment: item-counter;
 		position: relative;
-		bottom: 0;
 		padding: rem(32) rem(24);
 		display: flex;
 		flex-direction: column;
-		border-radius: 1rem;
+		border-radius: $border-radius;
 		border-top-left-radius: 0;
 		&::before,
 		&::after {
@@ -279,10 +285,12 @@
 		&-title {
 			position: relative;
 			text-transform: uppercase;
-			font-size: rem(22);
-			line-height: 150%;
+			//font-size: rem(22);
+			font-size: lineScale(22, 16, 480, 1440);
+			line-height: 100%;
 			font-weight: $fw-550;
 			padding-left: 1.5rem;
+
 			&::before {
 				content: "";
 				display: block;
@@ -290,7 +298,7 @@
 				aspect-ratio: 1/1;
 				background-color: $c-47A640;
 				position: absolute;
-				top: 0.5rem;
+				top: 0;
 				left: 0;
 			}
 			&::after {
@@ -375,6 +383,7 @@
 }
 .affairs {
 	padding: rem(96) 0;
+	overflow-x: clip;
 	&__container {
 		@include content-width();
 	}
@@ -444,7 +453,7 @@
 		}
 		&:not(.active):hover {
 			background-color: $c-F3F2EE;
-			width: 70%;
+			width: 67%;
 			&::before {
 				width: 110%;
 			}
@@ -456,7 +465,7 @@
 			width: 77%;
 			background-color: $c-11493E;
 			color: $c-FFFFFF;
-			max-height: fit-content;
+			max-height: 100%;
 			grid-template-columns: 15% auto;
 			gap: rem(48);
 			&::before {
@@ -467,27 +476,33 @@
 			}
 			& .affairs__item-title {
 				font-size: rem(24);
+				font-size: lineScale(24, 18, 480, 1440);
 				color: $c-FFFFFF;
 			}
 			& .affairs__item-image-wrapper {
 				translate: 0 0;
 				width: rem(56);
 			}
+			& .affairs__item-body-wrapper {
+				max-height: 100%;
+			}
 			& .affairs__item-name,
 			& .affairs__item-post,
 			& .affairs__item-desc,
 			& .affairs__item-values,
 			& .affairs__item-button {
-				max-width: fit-content;
-				max-height: fit-content;
+				max-width: 100%;
+				max-height: 100%;
 			}
-			& .affairs__item-body {
+			& .affairs__item-body,
+			& .affairs__item-body-wrapper {
 				display: flex;
 				flex-direction: column;
 				gap: 2rem;
 			}
 			& .affairs__item-divider {
 				width: 100%;
+				transition: $duration;
 			}
 		}
 		&--icon {
@@ -499,6 +514,12 @@
 		}
 		&-body {
 			position: relative;
+			&-wrapper {
+				color: $c-FFFFFF;
+				max-height: 0;
+				overflow: hidden;
+				transition: $duration;
+			}
 		}
 		&-logobox {
 			display: flex;
@@ -513,6 +534,7 @@
 			aspect-ratio: 1/1;
 			border-radius: 50%;
 			overflow: hidden;
+			transition: $duration;
 		}
 		&-image {
 			width: 100%;
@@ -538,12 +560,14 @@
 			position: relative;
 			line-height: 160%;
 			font-weight: $fw-550;
+			padding-right: 1.5rem;
 			transition: $duration;
 		}
 		&-desc {
 			font-size: rem(14);
 			opacity: 0.8;
 			max-height: 0;
+			transition: 0;
 			overflow: hidden;
 		}
 		&-divider {
@@ -552,13 +576,12 @@
 			background-color: $c-FFFFFF;
 			opacity: 0.25;
 			width: 0;
-			transition: $duration;
 		}
 		&-values {
 			display: flex;
 			justify-content: space-between;
+			flex-wrap: wrap;
 			gap: 2rem;
-			transition: $duration;
 			max-height: 0;
 			overflow: hidden;
 			&-item {
@@ -575,6 +598,7 @@
 			}
 		}
 		&-button {
+			width: fit-content;
 			display: flex;
 			align-items: center;
 			gap: 0.5rem;
@@ -595,6 +619,9 @@
 	}
 	&__body {
 		margin-top: rem(24);
+	}
+	&__slider {
+		pointer-events: none;
 	}
 	&__slide {
 		max-width: rem(223);
@@ -620,8 +647,6 @@
 		gap: 2rem;
 		align-items: center;
 		@include content-width();
-	}
-	&__titlebox {
 	}
 	&__tag {
 		@include block-tag();
@@ -653,13 +678,90 @@
 			position: absolute;
 			inset: 0;
 			background: linear-gradient(to top, rgba($c-08483C, 0.6) 0%, rgba($c-08483C, 0) 100%);
-			border-radius: 1rem;
+			border-radius: $border-radius;
 		}
 	}
 	&__image {
 		height: 100%;
 		object-fit: cover;
-		object-position: -50%;
-		border-radius: 1rem;
+		object-position: -10rem;
+		border-radius: $border-radius;
+	}
+}
+@media (max-width: 1024px) {
+	.practices {
+		&__item {
+			&:nth-child(3n + 1),
+			&:nth-child(3n + 2),
+			&:nth-child(3n + 3) {
+				position: relative;
+				inset: 0;
+				width: 100%;
+				& a {
+					margin-top: 2rem;
+				}
+				& p {
+					width: 100%;
+				}
+			}
+		}
+	}
+	.affairs {
+		&__header {
+			display: flex;
+			flex-direction: column;
+			gap: 2rem;
+		}
+		&__item {
+			width: 100%;
+			&:not(.active):hover {
+				width: 100%;
+			}
+			&.active {
+				width: 100%;
+			}
+		}
+		&__button {
+			margin: 0;
+			margin-top: 2rem;
+		}
+	}
+}
+@media (max-width: 768px) {
+	.intro {
+		&__slide {
+			&-titlebox {
+				text-align: right;
+				padding-right: 1rem;
+			}
+		}
+		&__advant {
+			padding: 0;
+		}
+	}
+	.about {
+		&__container {
+			display: flex;
+			flex-direction: column;
+			gap: 2rem;
+		}
+	}
+	.affairs {
+		&__item.active {
+			display: flex;
+			flex-direction: column;
+			& .affairs__item-logobox {
+				align-items: flex-start;
+				text-align: left;
+			}
+		}
+	}
+	.career {
+		&__container {
+			display: block;
+		}
+		&__image-wrapper {
+			display: none;
+		}
 	}
 }
