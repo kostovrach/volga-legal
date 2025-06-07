@@ -13,7 +13,7 @@ function updateProgressBar() {
 
 	const progress = Math.min(1, Math.max(0, visibleTop / maxScrollable));
 
-	progressBar.style.height = `${progress * 1100}%`;
+	progressBar.style.height = `${progress * 1000}%`;
 }
 
 window.addEventListener("scroll", updateProgressBar);
