@@ -1,0 +1,215 @@
+@use "../utils/abstracts" as *;
+
+@media (pointer: fine) and (hover: hover) {
+	.liquid-item {
+		position: relative;
+		transition: $duration;
+		&:hover {
+			color: $c-FFFFFF;
+			scale: 0.99;
+		}
+	}
+	.liquid-fill {
+		position: absolute;
+		top: 0;
+		left: 50%;
+		width: 150%;
+		height: 100%;
+		background-color: $c-11493E;
+		z-index: -1;
+		transform-origin: center;
+		border-radius: 0;
+		transform: scaleY(0);
+		translate: -50% 0;
+		&.from-top {
+			transform-origin: top center;
+			animation: liquidFromTop calc($duration / 1.5) linear forwards;
+		}
+		&.from-bottom {
+			transform-origin: bottom center;
+			animation: liquidFromBottom calc($duration / 1.5) linear forwards;
+		}
+		&.exit-top {
+			transform-origin: top center;
+			animation: liquidExitTop calc($duration / 1.5) linear forwards;
+		}
+		&.exit-bottom {
+			transform-origin: bottom center;
+			animation: liquidExitBottom calc($duration / 1.5) linear forwards;
+		}
+		&.seamless-to-next {
+			transform-origin: bottom center;
+			animation: liquidSeamlessToNext calc($duration / 1.5) linear forwards;
+		}
+		&.seamless-to-prev {
+			transform-origin: top center;
+			animation: liquidSeamlessToPrev calc($duration / 1.5) linear forwards;
+		}
+		&.seamless-from-prev {
+			transform-origin: top center;
+			animation: liquidSeamlessFromPrev calc($duration / 1.5) linear forwards;
+		}
+		&.seamless-from-next {
+			transform-origin: bottom center;
+			animation: liquidSeamlessFromNext calc($duration / 1.5) linear forwards;
+		}
+		@keyframes liquidFromTop {
+			0% {
+				opacity: 1;
+				transform: scaleY(0);
+				border-radius: 0 0 100% 100%;
+			}
+			30% {
+				transform: scaleY(0.4);
+				border-radius: 0 0 70% 70%;
+			}
+			60% {
+				transform: scaleY(0.7);
+				border-radius: 0 0 40% 40%;
+			}
+			100% {
+				opacity: 1;
+				transform: scaleY(1);
+				border-radius: 0;
+			}
+		}
+		@keyframes liquidFromBottom {
+			0% {
+				opacity: 1;
+				transform: scaleY(0);
+				border-radius: 100% 100% 0 0;
+			}
+			30% {
+				transform: scaleY(0.4);
+				border-radius: 70% 70% 0 0;
+			}
+			60% {
+				transform: scaleY(0.7);
+				border-radius: 40% 40% 0 0;
+			}
+			100% {
+				opacity: 1;
+				transform: scaleY(1);
+				border-radius: 0;
+			}
+		}
+		@keyframes liquidExitTop {
+			0% {
+				opacity: 1;
+				transform: scaleY(1);
+				border-radius: 0;
+			}
+			40% {
+				transform: scaleY(0.7);
+				border-radius: 0 0 40% 40%;
+			}
+			70% {
+				transform: scaleY(0.4);
+				border-radius: 0 0 70% 70%;
+			}
+			100% {
+				transform: scaleY(0);
+				border-radius: 0 0 100% 100%;
+			}
+		}
+		@keyframes liquidExitBottom {
+			0% {
+				opacity: 1;
+				transform: scaleY(1);
+				border-radius: 0;
+			}
+			40% {
+				transform: scaleY(0.7);
+				border-radius: 40% 40% 0 0;
+			}
+			70% {
+				transform: scaleY(0.4);
+				border-radius: 70% 70% 0 0;
+			}
+			100% {
+				transform: scaleY(0);
+				border-radius: 100% 100% 0 0;
+			}
+		}
+		@keyframes liquidSeamlessToNext {
+			0% {
+				opacity: 1;
+				transform: scaleY(1);
+				border-radius: 0;
+			}
+			30% {
+				transform: scaleY(0.8);
+				border-radius: 30% 30% 0 0;
+			}
+			60% {
+				transform: scaleY(0.5);
+				border-radius: 60% 60% 0 0;
+			}
+			100% {
+				opacity: 1;
+				transform: scaleY(0);
+				border-radius: 90% 90% 0 0;
+			}
+		}
+		@keyframes liquidSeamlessToPrev {
+			0% {
+				opacity: 1;
+				transform: scaleY(1);
+				border-radius: 0;
+			}
+			30% {
+				transform: scaleY(0.8);
+				border-radius: 0 0 30% 30%;
+			}
+			60% {
+				transform: scaleY(0.5);
+				border-radius: 0 0 60% 60%;
+			}
+			100% {
+				opacity: 1;
+				transform: scaleY(0);
+				border-radius: 0 0 90% 90%;
+			}
+		}
+		@keyframes liquidSeamlessFromPrev {
+			0% {
+				opacity: 1;
+				transform: scaleY(0.2);
+				border-radius: 0 0 90% 90%;
+			}
+			40% {
+				transform: scaleY(0.5);
+				border-radius: 0 0 60% 60%;
+			}
+			70% {
+				transform: scaleY(0.8);
+				border-radius: 0 0 30% 30%;
+			}
+			100% {
+				opacity: 1;
+				transform: scaleY(1);
+				border-radius: 0;
+			}
+		}
+		@keyframes liquidSeamlessFromNext {
+			0% {
+				opacity: 1;
+				transform: scaleY(0.2);
+				border-radius: 90% 90% 0 0;
+			}
+			40% {
+				transform: scaleY(0.5);
+				border-radius: 60% 60% 0 0;
+			}
+			70% {
+				transform: scaleY(0.8);
+				border-radius: 30% 30% 0 0;
+			}
+			100% {
+				opacity: 1;
+				transform: scaleY(1);
+				border-radius: 0;
+			}
+		}
+	}
+}

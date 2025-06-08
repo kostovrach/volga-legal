@@ -2,6 +2,8 @@ const historySection = document.querySelector(".history");
 const progressBar = document.querySelector(".history__item-progressbar");
 
 function updateProgressBar() {
+	if (!historySection) { return }
+	
 	const rect = historySection.getBoundingClientRect();
 	const windowHeight = window.innerHeight;
 
