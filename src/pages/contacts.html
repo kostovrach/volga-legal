@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ru">
+    @@include('../components/head.html', { "title": "Волга Лигал - Контакты" })
+    <body>
+        @@include('../components/header.html', { "type": "fill" })
+        <main id="start">
+            <section class="contacts">
+                <div class="contacts__container">
+                    <div class="contacts__header">
+                        <div class="contacts__titlebox">
+                            <div class="contacts__tag">Контакты</div>
+                            <h1 class="contacts__title">Мы всегда готовы защищать интересы клиентов</h1>
+                        </div>
+                        <picture class="contacts__image-container">
+                            <img class="contacts__image" src="../assets/images/content/example5.jpg" alt="">
+                        </picture>
+                    </div>
+                    <div class="contacts__body">
+                        <ul class="contacts__list">
+                            <li class="contacts__list-item--title">Контакты</li>
+                            <li class="contacts__list-item contacts__list-item--link"><a href="tel:+78462739283">+7 (846) 273-92-83</a></li>
+                            <li class="contacts__list-item contacts__list-item--link"><a href="mailto:hello@volgaligal.ru">hello@volgaligal.ru</a></li>
+                        </ul>
+                        <ul class="contacts__list">
+                            <li class="contacts__list-item--title">Адрес офиса</li>
+                            <li class="contacts__list-item">Россия, г. Самара ул.<br />Молодогвардейская, 204 (офисный центр «БЭЛ-Плаза»)</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+        </main>
+		@@include("../components/footer.html")
+    </body>
+</html>

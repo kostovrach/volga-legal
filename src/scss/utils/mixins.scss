@@ -153,6 +153,7 @@
 }
 @mixin button-hover($width: fit-content, $after-color: $c-47A640, $bg-opacity: 0.5) {
 	position: relative;
+	font-size: lineScale(18,14,480,1440);
 	width: $width;
 	display: flex;
 	align-items: center;
@@ -180,7 +181,7 @@
 	}
 }
 @mixin block-title() {
-	font-size: lineScale(56, 24, 480, 1440);
+	font-size: lineScale(56, 28, 480, 1440);
 	line-height: 100%;
 	&--accent {
 		@include gradient-text();
