@@ -1,0 +1,31 @@
+@use "../utils/abstracts" as *;
+
+.clients {
+	padding: rem(96) 0;
+	&__titlebox {
+		@include content-width();
+	}
+	&__tag {
+		@include block-tag();
+	}
+	&__body {
+		margin-top: rem(24);
+	}
+	&__slider {
+		pointer-events: none;
+	}
+	&__slide {
+		max-width: rem(223);
+		aspect-ratio: 1/1;
+		background-color: $c-F3F2EE;
+		@include flex-center();
+		&-image-wrapper {
+			height: rem(96);
+		}
+		&-image {
+			height: 100%;
+			object-fit: contain;
+			filter: saturate(0%);
+		}
+	}
+}

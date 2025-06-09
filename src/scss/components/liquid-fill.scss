@@ -6,7 +6,7 @@
 		transition: $duration;
 		&:hover {
 			color: $c-FFFFFF;
-			scale: 0.99;
+			transform: scaleX(0.99);
 		}
 	}
 	.liquid-fill {

@@ -40,7 +40,7 @@
 			padding-left: rem(82);
 			border-radius: $border-radius;
 			border-top-left-radius: 0;
-			filter: drop-shadow(0 0 10px rgba($c-1B2F4D, 0.3));
+			@include drop-shadow();
 			&::before {
 				content: "";
 				display: block;
@@ -274,20 +274,9 @@
 		border-radius: $border-radius;
 		overflow: hidden;
 		background-color: $c-FFFFFF;
+		@include flowing-fill();
 		& > * {
 			cursor: default;
-			transition: $duration;
-		}
-		&::before {
-			content: "";
-			position: absolute;
-			z-index: 0;
-			top: 0;
-			left: 0;
-			width: 0;
-			height: 0;
-			background-color: $c-11493E;
-			border-radius: $border-radius;
 			transition: $duration;
 		}
 		&:hover {
@@ -303,18 +292,6 @@
 			.principles__item-text {
 				opacity: 1;
 			}
-			&::before {
-				width: 100%;
-				height: 100%;
-			}
-		}
-		&:not(:hover)::before {
-			width: 0;
-			height: 0;
-			top: auto;
-			left: auto;
-			bottom: 0;
-			right: 0;
 		}
 		&-title {
 			position: relative;

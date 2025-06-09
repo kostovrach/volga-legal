@@ -103,8 +103,9 @@
     padding-bottom: rem(96);
 	@include flex-center();
 	&__container {
+		padding: 0 rem(16);
 		position: relative;
-		width: 50%;
+		width: 100ch;
 		text-align: center;
 		&::before,
 		&::after {
@@ -132,7 +133,6 @@
         font-weight: $fw-550;
     }
 }
-
 @media (max-width: 768px) {
     .hero {
         &__titlebox {
@@ -146,12 +146,6 @@
                 grid-row: 2;
                 grid-column: span 2;
             }
-        }
-    }
-    .cite {
-        &__container {
-            padding: 0 rem(16);
-            width: 100%;
         }
     }
 }

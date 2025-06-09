@@ -81,7 +81,7 @@
 		padding: rem(12) 0;
 		color: inherit;
 		background-color: $c-F8F8F6;
-		filter: drop-shadow(0 0 10px rgba($c-1B2F4D, 0.3));
+		@include drop-shadow();
 		.header__logo-wrapper--main {
 			display: block;
 			width: rem(205);

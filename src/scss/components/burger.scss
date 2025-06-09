@@ -64,7 +64,8 @@
 		opacity: 1;
 		pointer-events: auto;
 	}
-	&.sticky {
+	&.sticky,
+	&.fill {
 		padding-top: 1rem;
 	}
 	& *:focus {

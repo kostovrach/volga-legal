@@ -1,0 +1,66 @@
+@use "../utils/abstracts" as *;
+
+.article {
+	padding: rem(96) 0;
+	margin-top: rem(64);
+	&__header {
+	}
+	&__titlebox {
+		display: flex;
+		flex-direction: column;
+		gap: rem(24);
+		@include content-width();
+	}
+	&__button-back {
+		display: flex;
+		flex-direction: row-reverse;
+		align-items: center;
+		justify-content: flex-end;
+		gap: 0.5rem;
+		@include icon-hover(horizontal-reverse);
+		&--icon {
+			rotate: 180deg;
+		}
+	}
+	&__title {
+		max-width: 30ch;
+		@include block-title();
+	}
+	&__date {
+		font-size: rem(14);
+		opacity: 0.5;
+	}
+	&__cover-wrapper {
+		margin-top: rem(64);
+		width: 100%;
+		max-height: rem(420);
+		overflow: hidden;
+		@include flex-center();
+	}
+	&__cover {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+	}
+	&__body {
+        padding: rem(96) 0;
+		&-container {
+			display: grid;
+			grid-template-columns: 25% auto;
+			gap: rem(64);
+			@include content-width();
+		}
+	}
+    &__chapter {
+        &-image-container {
+            max-width: 100%;
+            overflow: hidden;
+            border-radius: $border-radius;
+        }
+        &-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+}
