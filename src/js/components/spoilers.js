@@ -1,8 +1,13 @@
-const spoilerContainer = document.querySelector(".js-spoiler-container");
-const spoilerItems = spoilerContainer.querySelectorAll(".js-spoiler-item");
+(function () {
+	const containers = document.querySelectorAll(".js-spoiler-container");
+	if (!containers.length) return;
 
-spoilerItems.forEach((item) => {
-	item.addEventListener("click", function () {
-		this.classList.toggle("active");
+	containers.forEach((container) => {
+		const items = container.querySelectorAll(".js-spoiler-item");
+		items.forEach((item) => {
+			item.addEventListener("click", function () {
+				this.classList.toggle("active");
+			});
+		});
 	});
-});
+})();

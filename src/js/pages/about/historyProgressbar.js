@@ -1,23 +1,25 @@
-const historySection = document.querySelector(".history");
-const progressBar = document.querySelector(".history__item-progressbar");
+(function () {
+	const historySection = document.querySelector(".history");
+	const progressBar = document.querySelector(".history__item-progressbar");
 
-function updateProgressBar() {
-	if (!historySection) { return }
-	
-	const rect = historySection.getBoundingClientRect();
-	const windowHeight = window.innerHeight;
+	if (!historySection || !progressBar) return;
 
-	const start = windowHeight * 0.2;
-	const end = rect.height - windowHeight * 0.3;
+	function updateProgressBar() {
+		const rect = historySection.getBoundingClientRect();
+		const windowHeight = window.innerHeight;
 
-	const visibleTop = Math.max(0, -rect.top + start);
-	const maxScrollable = end;
+		const start = windowHeight * 0.2;
+		const end = rect.height - windowHeight * 0.3;
 
-	const progress = Math.min(1, Math.max(0, visibleTop / maxScrollable));
+		const visibleTop = Math.max(0, -rect.top + start);
+		const maxScrollable = end;
 
-	progressBar.style.height = `${progress * 1000}%`;
-}
+		const progress = Math.min(1, Math.max(0, visibleTop / maxScrollable));
 
-window.addEventListener("scroll", updateProgressBar);
-window.addEventListener("resize", updateProgressBar);
-window.addEventListener("load", updateProgressBar);
+		progressBar.style.height = `${progress * 1000}%`;
+	}
+
+	window.addEventListener("scroll", updateProgressBar);
+	window.addEventListener("resize", updateProgressBar);
+	window.addEventListener("load", updateProgressBar);
+})();

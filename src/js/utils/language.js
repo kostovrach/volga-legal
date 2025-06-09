@@ -1,38 +1,43 @@
-const langSwitcher = document.querySelector('.header__lang');
-const buttonLang = langSwitcher.querySelector('.header__lang-current');
-const currentLang = langSwitcher.querySelector('.header__lang-current--text');
-const langItems = langSwitcher.querySelectorAll('.header__lang-list-item');
+(function () {
+	const langSwitcher = document.querySelector('.header__lang');
+	if (!langSwitcher) return;
 
-function setLang(langCode) {
-  localStorage.setItem('lang', langCode);
-  currentLang.textContent = langCode.toUpperCase();
-}
+	const buttonLang = langSwitcher.querySelector('.header__lang-current');
+	const currentLang = langSwitcher.querySelector('.header__lang-current--text');
+	const langItems = langSwitcher.querySelectorAll('.header__lang-list-item');
 
-buttonLang.addEventListener('click', (e) => {
-  e.stopPropagation();
-  langSwitcher.classList.toggle('open');
-});
+	if (!buttonLang || !currentLang || !langItems.length) return;
 
-langItems.forEach(item => {
-  item.addEventListener('click', () => {
-    const selectedLang = item.getAttribute('data-lang');
-    setLang(selectedLang);
-    langSwitcher.classList.remove('open');
-  });
-});
+	function setLang(langCode) {
+		localStorage.setItem('lang', langCode);
+		currentLang.textContent = langCode.toUpperCase();
+	}
 
-document.addEventListener('click', (e) => {
-  if (!langSwitcher.contains(e.target)) {
-    langSwitcher.classList.remove('open');
-  }
-});
+	buttonLang.addEventListener('click', (e) => {
+		e.stopPropagation();
+		langSwitcher.classList.toggle('open');
+	});
 
-window.addEventListener("scroll", () => {
-    langSwitcher.classList.remove('open');
+	langItems.forEach(item => {
+		item.addEventListener('click', () => {
+			const selectedLang = item.getAttribute('data-lang');
+			setLang(selectedLang);
+			langSwitcher.classList.remove('open');
+		});
+	});
 
-})
+	document.addEventListener('click', (e) => {
+		if (!langSwitcher.contains(e.target)) {
+			langSwitcher.classList.remove('open');
+		}
+	});
 
-window.addEventListener('DOMContentLoaded', () => {
-  const savedLang = localStorage.getItem('lang') || 'ru';
-  setLang(savedLang);
-});
+	window.addEventListener("scroll", () => {
+		langSwitcher.classList.remove('open');
+	});
+
+	window.addEventListener('DOMContentLoaded', () => {
+		const savedLang = localStorage.getItem('lang') || 'ru';
+		setLang(savedLang);
+	});
+})();

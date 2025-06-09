@@ -1,12 +1,21 @@
-const navigations = document.querySelectorAll('a[href*="#"]')
+(function () {
+	const navigations = document.querySelectorAll('a[href*="#"]');
+	if (!navigations.length) return;
 
-for (let nav of navigations) {
-    nav.addEventListener("click", function(e) {
-        e.preventDefault();
-        const blockID = nav.getAttribute('href')
-        document.querySelector('' + blockID).scrollIntoView({
-            behavior: "smooth",
-            block: "start"
-        })
-    })
-}
+	navigations.forEach(nav => {
+		nav.addEventListener("click", function (e) {
+			const blockID = nav.getAttribute('href');
+
+			if (blockID === "#") return;
+
+			const target = document.querySelector(blockID);
+			if (!target) return;
+
+			e.preventDefault();
+			target.scrollIntoView({
+				behavior: "smooth",
+				block: "start"
+			});
+		});
+	});
+})();

@@ -1,7 +1,8 @@
-document.addEventListener("DOMContentLoaded", () => {
+(function () {
 	const wrapper = document.querySelector(".clients__slider-wrapper");
+	const sliderEl = document.querySelector(".clients__slider");
 
-	if (!wrapper) return;
+	if (!wrapper || !sliderEl) return;
 
 	const slides = wrapper.querySelectorAll(".clients__slide");
 	const duplicatesCount = 2;
@@ -28,5 +29,5 @@ document.addEventListener("DOMContentLoaded", () => {
 		speed: 8000,
 	};
 
-	new Swiper(".clients__slider", clientsSliderParams);
-});
+	new Swiper(sliderEl, clientsSliderParams);
+})();

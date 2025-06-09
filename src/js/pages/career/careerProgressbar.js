@@ -1,23 +1,25 @@
-const careerSect = document.querySelector(".advant");
-const careerProgressBar = document.querySelector(".advant__body-progressbar-inner");
+(function () {
+	const section = document.querySelector(".advant");
+	const progressBar = document.querySelector(".advant__body-progressbar-inner");
 
-function updateCareerProgressBar() {
-	if (!careerSect) { return }
-	
-	const rect = careerSect.getBoundingClientRect();
-	const windowHeight = window.innerHeight;
+	if (!section || !progressBar) return;
 
-	const start = windowHeight * 0.2;
-	const end = rect.height - windowHeight * 0.3;
+	function updateProgressBar() {
+		const rect = section.getBoundingClientRect();
+		const windowHeight = window.innerHeight;
 
-	const visibleTop = Math.max(0, -rect.top + start);
-	const maxScrollable = end;
+		const start = windowHeight * 0.2;
+		const end = rect.height - windowHeight * 0.3;
 
-	const progress = Math.min(1, Math.max(0, visibleTop / maxScrollable));
+		const visibleTop = Math.max(0, -rect.top + start);
+		const maxScrollable = end;
 
-	careerProgressBar.style.height = `${progress * 100}%`;
-}
+		const progress = Math.min(1, Math.max(0, visibleTop / maxScrollable));
 
-window.addEventListener("scroll", updateCareerProgressBar);
-window.addEventListener("resize", updateCareerProgressBar);
-window.addEventListener("load", updateCareerProgressBar);
+		progressBar.style.height = `${progress * 100}%`;
+	}
+
+	window.addEventListener("scroll", updateProgressBar);
+	window.addEventListener("resize", updateProgressBar);
+	window.addEventListener("load", updateProgressBar);
+})();
