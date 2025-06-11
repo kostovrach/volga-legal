@@ -22,7 +22,11 @@ const browserSync = browserSyncLib.create();
 const paths = {
   html: {
     src: 'src/pages/*.html',
-    watch: ['src/pages/**/*.html', 'src/components/**/*.html', 'src/layout/**/*.html'],
+    watch: [
+      'src/pages/**/*.html', 
+      'src/components/**/*.html', 
+      'src/layout/**/*.html'
+    ],
     dest: 'src/',
   },
   styles: {
@@ -35,7 +39,12 @@ const paths = {
     dest: 'src/css/',
   },
   scripts: {
-    src: ['node_modules/swiper/swiper-bundle.js', 'src/js/**/*.js', '!src/js/main.min.js'],
+    src: [
+      'node_modules/swiper/swiper-bundle.js', 
+      'node_modules/@fancyapps/ui/dist/fancybox/fancybox.umd.js', 
+      'src/js/**/*.js', 
+      '!src/js/main.min.js'
+    ],
     dest: 'src/js/',
   },
   fonts: {

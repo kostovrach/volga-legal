@@ -12,6 +12,7 @@
   "license": "ISC",
   "packageManager": "pnpm@10.11.0",
   "devDependencies": {
+    "@fancyapps/ui": "^5.0.36",
     "browser-sync": "^3.0.4",
     "del": "^8.0.0",
     "fast-glob": "^3.3.3",

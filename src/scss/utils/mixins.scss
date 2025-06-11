@@ -241,3 +241,20 @@
 		right: 0;
 	}
 }
+@mixin title-marker() {
+	position: relative;
+	font-size: lineScale(32, 24, 480, 1440);
+	line-height: 120%;
+	font-weight: $fw-550;
+	padding-left: rem(16);
+	&::before {
+		content: "";
+		display: block;
+		position: absolute;
+		left: 0;
+		top: 0;
+		height: 100%;
+		width: rem(4);
+		background-color: $c-47A640;
+	}
+}

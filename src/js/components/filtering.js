@@ -1,6 +1,6 @@
 (function () {
-	const filters = document.querySelectorAll(".news__filter");
-	const items = document.querySelectorAll(".news__item");
+	const filters = document.querySelectorAll(".js-filter");
+	const items = document.querySelectorAll(".js-filtering-item");
 
 	if (!filters.length || !items.length) return;
 
