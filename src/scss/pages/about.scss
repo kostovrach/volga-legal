@@ -280,8 +280,8 @@
 			transition: $duration;
 		}
 		&:hover {
-			color: $c-F3F2EE;
 			.principles__item-title {
+				color: $c-F3F2EE;
 				&::before {
 					background: none;
 					-webkit-text-fill-color: inherit;
@@ -290,6 +290,7 @@
 				}
 			}
 			.principles__item-text {
+				color: $c-F3F2EE;
 				opacity: 1;
 			}
 		}
@@ -543,10 +544,10 @@
 			width: 100%;
 		}
 	}
-    .principles {
-        &__body {
-            display: flex;
-            flex-direction: column;
-        }
-    }
+	.principles {
+		&__body {
+			display: flex;
+			flex-direction: column;
+		}
+	}
 }

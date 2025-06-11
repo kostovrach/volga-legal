@@ -2,7 +2,7 @@
 
 .titlebox {
 	padding: rem(96) 0;
-    margin-top: rem(64);
+	margin-top: rem(64);
 	&__container {
 		display: flex;
 		flex-direction: column;
@@ -18,7 +18,7 @@
 	}
 }
 .ratings {
-    padding: rem(96) 0;
+	padding: rem(96) 0;
 	&__container {
 		@include content-width();
 	}
@@ -51,7 +51,7 @@
 			height: 0;
 			background-color: $c-11493E;
 			transition: $duration;
-            pointer-events: none;
+			pointer-events: none;
 		}
 		&:hover {
 			background: none;
@@ -100,7 +100,7 @@
 				border-radius: $border-radius;
 				scale: 0.95;
 				opacity: 0;
-				transition: $duration;
+				transition: calc($duration * 0.7);
 			}
 			&:hover {
 				border-radius: $border-radius;
@@ -156,100 +156,195 @@
 		display: grid;
 		grid-template-columns: repeat(3, 1fr);
 		&-item {
-            position: relative;
-            height: rem(64);
+			position: relative;
+			height: rem(64);
 			border: rem(1) solid rgba($c-1B2F4D, 0.05);
-            @include flex-center();
-
+			@include flex-center();
 		}
 	}
-    &__button {
-        position: absolute;
-        z-index: 1;
-        top: 50%;
-        translate: 0 -50%;
-        width: fit-content;
-        height: fit-content;
-        margin: 0;
-        font-size: rem(24);
-        color: inherit;
-        &::after {
-            display: none;
-        }
-        &--prev {
-            rotate: -180deg;
-            left: rem(32);
-        }
-        &--next {
-            right: rem(32);
-        }
-    }
-    &__pagination {
-        position: static !important;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: 1rem;
-        z-index: 1;
-        &-item {
-            font-weight: $fw-550;
-            &.active {
-                opacity: .5;
-            }
-        }
-    }
+	&__button {
+		position: absolute;
+		z-index: 1;
+		top: 50%;
+		translate: 0 -50%;
+		width: fit-content;
+		height: fit-content;
+		margin: 0;
+		font-size: rem(24);
+		color: inherit;
+		&::after {
+			display: none;
+		}
+		&--prev {
+			rotate: -180deg;
+			left: rem(32);
+		}
+		&--next {
+			right: rem(32);
+		}
+	}
+	&__pagination {
+		position: static !important;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		gap: 1rem;
+		z-index: 1;
+		&-item {
+			font-weight: $fw-550;
+			&.active {
+				opacity: 0.5;
+			}
+		}
+	}
 }
 .awards {
-    padding: rem(96) 0;
-    overflow-x: clip;
-    &__container {
-        display: flex;
-        flex-direction: column;
-        gap: rem(64);
-        @include content-width();
-    }
-    &__title {
-        @include title-marker();
-    }
-    &__item {
-        cursor: pointer;
-        display: grid;
-        grid-template-columns: 40% auto 10%;
-        gap: 2rem;
-        padding: rem(64) 0;
-        &-title {
-            font-size: lineScale(28,20,480,1440);
-            @include lineClamp(2);
-        }
-        &-date {
-            justify-self: center;
-            font-size: rem(14);
-        }
-        &-button {
-            @include icon-hover(diagonal-reverse);
-            &--icon {
-                font-size: rem(32);
-                rotate: -45deg;
-            }
-        }
-    }
-    &__button-show {
-        cursor: pointer;
-        align-self: center;
-        width: fit-content;
-        display: flex;
-        gap: 0.5rem;
-        padding: rem(8) rem(24);
-        @include button-hover();
-        @include icon-hover(vertical);
-        &:hover {
-            color: $c-FFFFFF;
-        }
-        &.disable {
-            display: none;
-        }
-        &--icon {
-            rotate: 90deg;
-        }
-    }
+	padding: rem(96) 0;
+	overflow-x: clip;
+	&__container {
+		display: flex;
+		flex-direction: column;
+		gap: rem(64);
+		@include content-width();
+	}
+	&__title {
+		@include title-marker();
+	}
+	&__item {
+		cursor: pointer;
+		display: grid;
+		grid-template-columns: 40% auto 10%;
+		gap: 2rem;
+		padding: rem(64) 0;
+		&-title {
+			font-size: lineScale(28, 20, 480, 1440);
+			@include lineClamp(2);
+		}
+		&-date {
+			justify-self: center;
+			font-size: rem(14);
+		}
+		&-button {
+			@include icon-hover(diagonal-reverse);
+			&--icon {
+				font-size: rem(32);
+				rotate: -45deg;
+			}
+		}
+	}
+	&__button-show {
+		cursor: pointer;
+		align-self: center;
+		width: fit-content;
+		display: flex;
+		gap: 0.5rem;
+		padding: rem(8) rem(24);
+		@include button-hover();
+		@include icon-hover(vertical);
+		&:hover {
+			color: $c-FFFFFF;
+		}
+		&.disable {
+			display: none;
+		}
+		&--icon {
+			rotate: 90deg;
+		}
+	}
+}
+.certificates {
+	padding: rem(96) 0;
+	&__container {
+		@include content-width();
+	}
+	&__title {
+		@include title-marker();
+	}
+	&__body {
+		margin-top: rem(64);
+	}
+	&__list {
+		display: grid;
+		grid-template-columns: repeat(4, 1fr);
+	}
+	&__item {
+		cursor: pointer;
+		position: relative;
+		aspect-ratio: 1/1;
+		border: rem(1) solid rgba($c-1B2F4D, 0.05);
+		overflow: hidden;
+		padding: rem(32);
+		text-align: center;
+		font-size: rem(20);
+		font-weight: $fw-550;
+		transition: $duration;
+		@include flex-center();
+		&::before {
+			content: "";
+			position: absolute;
+			z-index: -1;
+			inset: 0;
+			width: 100%;
+			height: 100%;
+			background: linear-gradient(90deg, $c-47A640, $c-066C6B);
+			border-radius: 50%;
+			scale: 0.9;
+			opacity: 0;
+			transition: calc($duration * 0.7);
+		}
+		&:hover {
+			color: $c-FFFFFF;
+			border-radius: $border-radius;
+			&::before {
+				scale: 1;
+				opacity: 1;
+				border-radius: 0;
+			}
+		}
+	}
+	&__footer {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		&-item {
+			position: relative;
+			height: rem(64);
+			border: rem(1) solid rgba($c-1B2F4D, 0.05);
+			@include flex-center();
+		}
+	}
+	&__button {
+		position: absolute;
+		z-index: 1;
+		top: 50%;
+		translate: 0 -50%;
+		width: fit-content;
+		height: fit-content;
+		margin: 0;
+		font-size: rem(24);
+		color: inherit;
+		&::after {
+			display: none;
+		}
+		&--prev {
+			rotate: -180deg;
+			left: rem(32);
+		}
+		&--next {
+			right: rem(32);
+		}
+	}
+	&__pagination {
+		position: static !important;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		gap: 1rem;
+		z-index: 1;
+		&-item {
+			font-weight: $fw-550;
+			&.active {
+				opacity: 0.5;
+			}
+		}
+	}
 }
