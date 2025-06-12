@@ -60,7 +60,6 @@ const paths = {
       'src/css/style.min.css',
       'src/js/main.min.js'
     ],
-    // Отдельно выделяем assets для правильного копирования
     assets: 'src/assets/**/*'
   }
 };
@@ -86,7 +85,7 @@ async function generateScssIndex() {
 
     const targetFilePath = join(dirPath, `_${folderName}.scss`);
 
-    // Не перезаписывает, если содержимое не изменилось
+    // Исключение перезаписи при отсутствии изменений
     const previousContent = fs.existsSync(targetFilePath)
       ? fs.readFileSync(targetFilePath, 'utf8')
       : '';
@@ -95,7 +94,6 @@ async function generateScssIndex() {
       fs.writeFileSync(targetFilePath, forwards);
       console.log(`Updated: ${targetFilePath}`);
     } else {
-      // Optional: log only once or remove this in production
       console.log(`Skipped (no changes): ${targetFilePath}`);
     }
   }));
@@ -160,12 +158,11 @@ function copyAssets() {
   return src(paths.build.assets, { 
     base: 'src',
     allowEmpty: true,
-    encoding: false  // Ключевой параметр! Не обрабатывать как текст
+    encoding: false
   })
   .pipe(dest(paths.build.dest));
 }
 
-// Объединяем копирование
 const copyToBuild = parallel(copyTextFiles, copyAssets);
 
 // Watcher
@@ -181,7 +178,7 @@ function serve() {
   watch(['src/js/**/*.js', '!src/js/main.min.js'], scripts);
 }
 
-// Экспортируемые задачи
+// Основные таски
 export { styles, scripts, font, html, serve, generateScssIndex, copyAssets };
 export const build = series(clean, generateScssIndex, html, styles, scripts, copyToBuild);
 export default series(generateScssIndex, parallel(html, styles, scripts), serve);
