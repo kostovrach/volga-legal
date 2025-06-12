@@ -55,10 +55,13 @@ const paths = {
     dest: 'build/',
     copy: [
       'src/**/*.html',
+      '!src/components/**/*.html',
+      '!src/pages/**/*.html',
       'src/css/style.min.css',
-      'src/js/main.min.js',
-      'src/assets/**/*',
+      'src/js/main.min.js'
     ],
+    // Отдельно выделяем assets для правильного копирования
+    assets: 'src/assets/**/*'
   }
 };
 
@@ -143,11 +146,27 @@ function clean() {
   return deleteAsync([paths.build.dest]);
 }
 
-// Copy files to build/
-function copyToBuild() {
-  return src(paths.build.copy, { base: 'src' })
+// Copy text files to build/
+function copyTextFiles() {
+  return src(paths.build.copy, { 
+    base: 'src',
+    allowEmpty: true,
+  })
     .pipe(dest(paths.build.dest));
 }
+
+// Copy binary files (images, fonts, etc.) to build/
+function copyAssets() {
+  return src(paths.build.assets, { 
+    base: 'src',
+    allowEmpty: true,
+    encoding: false  // Ключевой параметр! Не обрабатывать как текст
+  })
+  .pipe(dest(paths.build.dest));
+}
+
+// Объединяем копирование
+const copyToBuild = parallel(copyTextFiles, copyAssets);
 
 // Watcher
 function serve() {
@@ -163,6 +182,6 @@ function serve() {
 }
 
 // Экспортируемые задачи
-export { styles, scripts, font, html, serve, generateScssIndex };
+export { styles, scripts, font, html, serve, generateScssIndex, copyAssets };
 export const build = series(clean, generateScssIndex, html, styles, scripts, copyToBuild);
 export default series(generateScssIndex, parallel(html, styles, scripts), serve);
