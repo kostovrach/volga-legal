@@ -34,6 +34,9 @@ body {
 	max-width: 100vw;
 	height: 100%;
 	scrollbar-gutter: stable;
+	&:has(main.not-found) {
+		scrollbar-gutter: auto;
+	}
 }
 body {
 	-ms-text-size-adjust: 100%;

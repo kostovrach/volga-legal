@@ -1,0 +1,95 @@
+@use "../utils/abstracts" as *;
+
+.agreement {
+	padding: rem(96) 0;
+	margin-top: rem(64);
+	font-size: rem(14);
+	&__container {
+		@include content-width();
+	}
+	&__titlebox {
+		display: flex;
+		flex-direction: column;
+		gap: rem(32);
+	}
+	&__title {
+		text-transform: uppercase;
+		font-weight: $fw-550;
+		@include block-title();
+	}
+	&__date {
+		font-size: rem(14);
+		opacity: 0.5;
+	}
+	&__list {
+		counter-reset: item-counter;
+		display: flex;
+		flex-direction: column;
+		gap: rem(64);
+		margin-top: rem(64);
+	}
+	&__item {
+		counter-reset: subitem-counter;
+		counter-increment: item-counter;
+		display: flex;
+		flex-direction: column;
+		gap: rem(32);
+		max-width: 110ch;
+		&-title {
+			position: relative;
+			text-transform: uppercase;
+			font-weight: $fw-550;
+			font-size: lineScale(32,28,480,1440);
+            line-height: 100%;
+			padding-left: rem(48);
+			&::before {
+				content: counter(item-counter) ".";
+				position: absolute;
+				top: 0; left: 0;
+			}
+		}
+	}
+	&__subitem {
+		counter-reset: subsubitem-counter;
+		counter-increment: subitem-counter;
+		display: flex;
+		flex-direction: column;
+		gap: rem(32);
+		&-title {
+			position: relative;
+			text-transform: uppercase;
+			font-weight: $fw-550;
+			font-size: rem(22);
+			padding-left: rem(48);
+			&::before {
+				content: counter(item-counter) "." counter(subitem-counter);
+				position: absolute;
+				top: 0; left: 0;
+			}
+		}
+		&-text {
+			padding-left: rem(48);
+		}
+	}
+	&__subsubitem {
+		counter-increment: subsubitem-counter;
+		display: flex;
+		flex-direction: column;
+		gap: rem(24);
+		&-title {
+            position: relative;
+			text-transform: uppercase;
+			font-weight: $fw-550;
+			font-size: rem(18);
+			padding-left: rem(84);
+			&::before {
+				content: counter(item-counter) "." counter(subitem-counter) "." counter(subsubitem-counter);
+				position: absolute;
+				top: 0; left: 0;
+			}
+		}
+		&-text {
+			padding-left: rem(84);
+		}
+	}
+}
