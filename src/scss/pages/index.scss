@@ -451,14 +451,16 @@
 			background-color: inherit;
 			transition: width $duration;
 		}
-		&:not(.active):hover {
-			background-color: $c-F3F2EE;
-			width: 67%;
-			&::before {
-				width: 110%;
-			}
-			& .affairs__item-title {
-				@include gradient-text();
+		@media (pointer: fine) {
+			&:not(.active):hover {
+				background-color: $c-F3F2EE;
+				width: 67%;
+				&::before {
+					width: 110%;
+				}
+				& .affairs__item-title {
+					@include gradient-text();
+				}
 			}
 		}
 		&.active {
