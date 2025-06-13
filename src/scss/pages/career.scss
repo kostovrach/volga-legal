@@ -41,7 +41,7 @@
 		background-attachment: fixed;
 	}
 	&__cite {
-		max-width: rem(648);
+		max-width: 70ch;
 		position: absolute;
 		bottom: 0;
 		left: 35%;
@@ -64,7 +64,7 @@
 		}
 		&-text {
 			position: relative;
-			font-size: lineScale(20, 16, 480, 1440);
+			font-size: lineScale(20, 14, 480, 1440);
 			line-height: 150%;
 			font-weight: $fw-550;
 			&::before,
@@ -440,6 +440,9 @@
 }
 @media (max-width: 768px) {
 	.career-hero {
+		&__image {
+			background-attachment: scroll;
+		}
 		&__cite {
 			left: 0;
 		}

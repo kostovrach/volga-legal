@@ -2,7 +2,7 @@
 
 .hero {
 	padding: rem(96) 0;
-    margin-top: rem(64);
+	margin-top: rem(64);
 	&__container {
 		flex-direction: column;
 		gap: rem(96);
@@ -63,7 +63,7 @@
 		display: grid;
 		grid-template-columns: 50% 40% auto;
 		column-gap: rem(32);
-        row-gap: rem(16);
+		row-gap: rem(16);
 		padding: rem(48) 0;
 		border-top: rem(2) solid rgba($c-1B2F4D, 0.05);
 		&-titlebox {
@@ -82,7 +82,7 @@
 		&-tag {
 			text-transform: uppercase;
 			font-size: rem(14);
-            font-size: lineScale(14,12,480,1440);
+			font-size: lineScale(14, 12, 480, 1440);
 			opacity: 0.5;
 		}
 		&-text {
@@ -98,9 +98,9 @@
 			}
 		}
 	}
-} 
+}
 .cite {
-    padding-bottom: rem(96);
+	padding-bottom: rem(96);
 	@include flex-center();
 	&__container {
 		padding: 0 rem(16);
@@ -112,40 +112,43 @@
 			content: "";
 			display: block;
 			position: absolute;
-            top: -2rem;
-            left: 50%;
+			top: -2rem;
+			left: 50%;
 			width: 1rem;
 			height: 1.2rem;
-            translate: -50% 0;
+			translate: -50% 0;
 			background-color: $c-47A640;
 			clip-path: polygon(0% 0%, 90% 0, 90% 75%, 25% 75%, 0 100%, 0 75%);
 		}
-        &::before {
-            translate: -60% 0;
-        }
-        &::after {
-            translate: 60% 0;
-        }
+		&::before {
+			translate: -60% 0;
+		}
+		&::after {
+			translate: 60% 0;
+		}
 	}
-    &__text {
-        font-size: lineScale(24, 16, 480, 1440);
-        line-height: 120%;
-        font-weight: $fw-550;
-    }
+	&__text {
+		font-size: lineScale(24, 16, 480, 1440);
+		line-height: 120%;
+		font-weight: $fw-550;
+	}
 }
 @media (max-width: 768px) {
-    .hero {
-        &__titlebox {
-            width: 100%;
-        }
-    }
-    .areas {
-        &__item {
-            grid-template-columns: auto 10%;
-            &-text {
-                grid-row: 2;
-                grid-column: span 2;
-            }
-        }
-    }
+	.hero {
+		&__image {
+			background-attachment: scroll;
+		}
+		&__titlebox {
+			width: 100%;
+		}
+	}
+	.areas {
+		&__item {
+			grid-template-columns: auto 10%;
+			&-text {
+				grid-row: 2;
+				grid-column: span 2;
+			}
+		}
+	}
 }

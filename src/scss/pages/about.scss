@@ -77,7 +77,7 @@
 			}
 		}
 		&-text {
-			font-size: lineScale(20, 16, 480, 1440);
+			font-size: lineScale(20, 14, 480, 1440);
 			line-height: 140%;
 			font-weight: $fw-550;
 		}
@@ -241,6 +241,188 @@
 			margin-top: rem(32);
 		}
 	}
+	#circle {
+		animation: circle-rotate 5s ease infinite;
+		circle {
+			will-change: transform;
+			animation: circle-translate 5s ease infinite;
+		}
+		&1 {
+			--offset-x: 0.4rem;
+			--offset-y: 0.4rem;
+		}
+		&2 {
+			--offset-x: -0.4rem;
+			--offset-y: 0.4rem;
+		}
+		&3 {
+			--offset-x: 0.4rem;
+			--offset-y: -0.4rem;
+		}
+		&4 {
+			--offset-x: -0.4rem;
+			--offset-y: -0.4rem;
+		}
+		@keyframes circle-translate {
+			0%,
+			12%,
+			25%,
+			37%,
+			50%,
+			62%,
+			75%,
+			87%,
+			100% {
+				transform: translate(0, 0);
+			}
+			12% {
+				transform: translate(0, 0);
+			}
+			18% {
+				transform: translate(var(--offset-x), var(--offset-y));
+			}
+			25% {
+				transform: translate(0, 0);
+			}
+			37% {
+				transform: translate(0, 0);
+			}
+			43% {
+				transform: translate(var(--offset-x), var(--offset-y));
+			}
+			50% {
+				transform: translate(0, 0);
+			}
+			62% {
+				transform: translate(0, 0);
+			}
+			68% {
+				transform: translate(var(--offset-x), var(--offset-y));
+			}
+			75% {
+				transform: translate(0, 0);
+			}
+			87% {
+				transform: translate(0, 0);
+			}
+			93% {
+				transform: translate(var(--offset-x), var(--offset-y));
+			}
+			100% {
+				transform: translate(0, 0);
+			}
+		}
+		@keyframes circle-rotate {
+			0% {
+				rotate: 0deg;
+			}
+			12% {
+				rotate: 0deg;
+			}
+			25% {
+				rotate: 90deg;
+			}
+			37% {
+				rotate: 90deg;
+			}
+			50% {
+				rotate: 180deg;
+			}
+			62% {
+				rotate: 180deg;
+			}
+			75% {
+				rotate: 270deg;
+			}
+			87% {
+				rotate: 270deg;
+			}
+			100% {
+				rotate: 360deg;
+			}
+		}
+	}
+	#hypnotic {
+		&2,
+		&3,
+		&4 {
+			will-change: transform;
+			transform-origin: 50% 50%;
+			animation: hypnotic-spin 3s linear infinite;
+		}
+		@keyframes hypnotic-spin {
+			from {
+				transform: rotate(0deg);
+			}
+			to {
+				transform: rotate(-360deg);
+			}
+		}
+	}
+	#spring-horizontal {
+		&2 {
+			--offset: 5%;
+		}
+		&3 {
+			--offset: 10%;
+		}
+		&4 {
+			--offset: 15%;
+		}
+		&2,
+		&3,
+		&4 {
+			will-change: transform;
+			animation: spring-horizontal-translate 1.2s ease-in-out infinite;
+		}
+		@keyframes spring-horizontal-translate {
+			0% {
+				transform: translate(0, 0);
+			}
+			50% {
+				transform: translate(0, var(--offset));
+			}
+			100% {
+				transform: translate(0, 0);
+			}
+		}
+	}
+	#spring-vertical {
+		&1 {
+			--offset-y: 4%;
+			--offset-x: -8%;
+		}
+		&2 {
+			--offset-y: 2%;
+			--offset-x: -4%;
+		}
+		&3 {
+			--offset-y: 0%;
+			--offset-x: 0%;
+		}
+		&4 {
+			--offset-y: -2%;
+			--offset-x: 4%;
+		}
+		&1,
+		&2,
+		&3,
+		&4 {
+			will-change: transform;
+			animation: spring-vertical-translate 1s ease-in-out infinite;
+		}
+		@keyframes spring-vertical-translate {
+			0% {
+				transform: translate(0, 0);
+			}
+			50% {
+				transform: translate(var(--offset-x), var(--offset-y));
+			}
+			100% {
+				transform: translate(0, 0);
+			}
+		}
+	}
 }
 .principles {
 	padding: rem(96) 0;
@@ -314,189 +496,6 @@
 	}
 }
 
-#circle {
-	animation: circle-rotate 5s ease infinite;
-	circle {
-		will-change: transform;
-		animation: circle-translate 5s ease infinite;
-	}
-	&1 {
-		--offset-x: 0.4rem;
-		--offset-y: 0.4rem;
-	}
-	&2 {
-		--offset-x: -0.4rem;
-		--offset-y: 0.4rem;
-	}
-	&3 {
-		--offset-x: 0.4rem;
-		--offset-y: -0.4rem;
-	}
-	&4 {
-		--offset-x: -0.4rem;
-		--offset-y: -0.4rem;
-	}
-	@keyframes circle-translate {
-		0%,
-		12%,
-		25%,
-		37%,
-		50%,
-		62%,
-		75%,
-		87%,
-		100% {
-			transform: translate(0, 0);
-		}
-		12% {
-			transform: translate(0, 0);
-		}
-		18% {
-			transform: translate(var(--offset-x), var(--offset-y));
-		}
-		25% {
-			transform: translate(0, 0);
-		}
-		37% {
-			transform: translate(0, 0);
-		}
-		43% {
-			transform: translate(var(--offset-x), var(--offset-y));
-		}
-		50% {
-			transform: translate(0, 0);
-		}
-		62% {
-			transform: translate(0, 0);
-		}
-		68% {
-			transform: translate(var(--offset-x), var(--offset-y));
-		}
-		75% {
-			transform: translate(0, 0);
-		}
-		87% {
-			transform: translate(0, 0);
-		}
-		93% {
-			transform: translate(var(--offset-x), var(--offset-y));
-		}
-		100% {
-			transform: translate(0, 0);
-		}
-	}
-	@keyframes circle-rotate {
-		0% {
-			rotate: 0deg;
-		}
-		12% {
-			rotate: 0deg;
-		}
-		25% {
-			rotate: 90deg;
-		}
-		37% {
-			rotate: 90deg;
-		}
-		50% {
-			rotate: 180deg;
-		}
-		62% {
-			rotate: 180deg;
-		}
-		75% {
-			rotate: 270deg;
-		}
-		87% {
-			rotate: 270deg;
-		}
-		100% {
-			rotate: 360deg;
-		}
-	}
-}
-#hypnotic {
-	&2,
-	&3,
-	&4 {
-		will-change: transform;
-		transform-origin: 50% 50%;
-		animation: hypnotic-spin 3s linear infinite;
-	}
-	@keyframes hypnotic-spin {
-		from {
-			transform: rotate(0deg);
-		}
-		to {
-			transform: rotate(-360deg);
-		}
-	}
-}
-#spring-horizontal {
-	&2 {
-		--offset: 5%;
-	}
-	&3 {
-		--offset: 10%;
-	}
-	&4 {
-		--offset: 15%;
-	}
-	&2,
-	&3,
-	&4 {
-		will-change: transform;
-		animation: spring-horizontal-translate 1.2s ease-in-out infinite;
-	}
-	@keyframes spring-horizontal-translate {
-		0% {
-			transform: translate(0, 0);
-		}
-		50% {
-			transform: translate(0, var(--offset));
-		}
-		100% {
-			transform: translate(0, 0);
-		}
-	}
-}
-#spring-vertical {
-	&1 {
-		--offset-y: 4%;
-		--offset-x: -8%;
-	}
-	&2 {
-		--offset-y: 2%;
-		--offset-x: -4%;
-	}
-	&3 {
-		--offset-y: 0%;
-		--offset-x: 0%;
-	}
-	&4 {
-		--offset-y: -2%;
-		--offset-x: 4%;
-	}
-	&1,
-	&2,
-	&3,
-	&4 {
-		will-change: transform;
-		animation: spring-vertical-translate 1s ease-in-out infinite;
-	}
-	@keyframes spring-vertical-translate {
-		0% {
-			transform: translate(0, 0);
-		}
-		50% {
-			transform: translate(var(--offset-x), var(--offset-y));
-		}
-		100% {
-			transform: translate(0, 0);
-		}
-	}
-}
-
 @media (max-width: 1024px) {
 	.preface {
 		&__cite {
@@ -518,6 +517,7 @@
 @media (max-width: 768px) {
 	.preface {
 		&__content {
+			background-attachment: scroll;
 			@include flex-center();
 		}
 		&__titlebox {
