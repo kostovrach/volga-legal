@@ -151,6 +151,22 @@
 		width: 100%;
 	}
 }
+@mixin force-hover-underline($bg-color: $c-FFFFFF) {
+	position: relative;
+	width: fit-content;
+	pointer-events: none;
+	&::after {
+		content: "";
+		display: block;
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		height: rem(1);
+		width: 100%;
+		background-color: $bg-color;
+		transition: $duration;
+	}
+}
 @mixin button-hover($width: fit-content, $after-color: $c-47A640, $bg-opacity: 0.5) {
 	position: relative;
 	font-size: lineScale(18, 14, 480, 1440);

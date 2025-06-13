@@ -32,6 +32,9 @@
 		gap: 2rem;
 		&-item {
 			@include hover-underline();
+			&.current {
+				@include force-hover-underline();
+			}
 		}
 	}
 	&__lang {
@@ -91,6 +94,9 @@
 		}
 		.header__nav-item {
 			@include hover-underline($c-1B2F4D);
+			&.current {
+				@include force-hover-underline($c-1B2F4D);
+			}
 		}
 		.header__lang-list-item {
 			@include hover-underline($c-1B2F4D);
