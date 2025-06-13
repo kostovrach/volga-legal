@@ -2,10 +2,7 @@
 <html lang="ru">
 	@@include('../components/head.html', { "title": "Волга Лигал - О нас" })
 	<body>
-		@@include('../components/header.html', { 
-			"type": "none",
-			"page": "about"
-		})
+		@@include('../components/header.html', { "type": "none", "page": "about" })
 		<main id="start">
 			<section class="preface">
 				<div class="preface__content">
@@ -31,7 +28,7 @@
 					</div>
 				</div>
 			</section>
-			<section class="history">
+			<section class="history js-progress-section">
 				<div class="history__container">
 					<div class="history__header">
 						<div class="history__tagbox">
@@ -44,12 +41,14 @@
 					</div>
 					<div class="history__body">
 						<ul class="history__list">
+							<li class="history__list-progressbar">
+								<div class="history__list-progressbar-inner js-progressbar-inner"></div>
+							</li>
 							<li class="history__item">
 								<picture class="history__item-icon-wrapper">
 									<img class="history__item-icon" src="./assets/icons/emoji/emoji-copy.png" alt="#" />
 								</picture>
 								<div class="history__item-content">
-									<div class="history__item-progressbar"></div>
 									<div class="history__item-date">2005</div>
 									<p class="history__item-text">Регистрация компании "Волга Лигал" 15 мая 2005 года была осуществлена Андреем Сычёвым, который с тех пор активно развивает юридические услуги, ориентируясь на высокие стандарты качества и профессионализма</p>
 								</div>
@@ -268,22 +267,26 @@
 									<div class="expertise__slide-image">
 										<svg width="148" height="146" viewBox="0 0 148 146" fill="none" xmlns="http://www.w3.org/2000/svg">
 											<g filter="url(#filter0_g_1111_8701)">
-												<path id="spring-vertical1"
+												<path
+													id="spring-vertical1"
 													d="M131.583 96.1742C123.75 102.294 113.234 103.699 102.398 100.769C91.5611 97.8388 80.5367 90.5914 71.985 79.6458C63.4332 68.7 59.0677 56.2493 58.8463 45.0256C58.625 33.8027 62.5321 23.9385 70.3651 17.8187C78.1981 11.6989 88.7145 10.2942 99.5505 13.224C110.387 16.1541 121.412 23.402 129.964 34.3478C138.515 45.2935 142.881 57.7437 143.102 68.9673C143.323 80.1902 139.416 90.0543 131.583 96.1742Z"
 													stroke="url(#paint0_linear_1111_8701)"
 													stroke-width="4"
 												/>
-												<path id="spring-vertical2"
+												<path
+													id="spring-vertical2"
 													d="M113.589 106.174C105.756 112.294 95.2396 113.699 84.4036 110.769C73.567 107.839 62.5426 100.591 53.9909 89.6458C45.4391 78.7 41.0736 66.2493 40.8522 55.0256C40.6308 43.8027 44.538 33.9385 52.371 27.8187C60.204 21.6989 70.7204 20.2942 81.5563 23.224C92.3931 26.1541 103.418 33.402 111.97 44.3478C120.521 55.2935 124.886 67.7437 125.108 78.9673C125.329 90.1902 121.422 100.054 113.589 106.174Z"
 													stroke="url(#paint1_linear_1111_8701)"
 													stroke-width="4"
 												/>
-												<path id="spring-vertical3"
+												<path
+													id="spring-vertical3"
 													d="M95.5968 116.174C87.7637 122.294 77.2474 123.699 66.4114 120.769C55.5748 117.839 44.5504 110.591 35.9987 99.6458C27.4469 88.7 23.0814 76.2493 22.86 65.0256C22.6386 53.8027 26.5458 43.9385 34.3788 37.8187C42.2118 31.6989 52.7282 30.2942 63.5641 33.224C74.4009 36.1541 85.4257 43.402 93.9775 54.3478C102.529 65.2935 106.894 77.7437 107.116 88.9673C107.337 100.19 103.43 110.054 95.5968 116.174Z"
 													stroke="url(#paint2_linear_1111_8701)"
 													stroke-width="4"
 												/>
-												<path id="spring-vertical4"
+												<path
+													id="spring-vertical4"
 													d="M77.6036 126.174C69.7706 132.294 59.2542 133.699 48.4183 130.769C37.5816 127.839 26.5572 120.591 18.0055 109.646C9.45373 98.7 5.08824 86.2493 4.86684 75.0256C4.64546 63.8027 8.55265 53.9385 16.3856 47.8187C24.2186 41.6989 34.735 40.2942 45.571 43.224C56.4078 46.1541 67.4325 53.402 75.9843 64.3478C84.536 75.2935 88.901 87.7437 89.1224 98.9673C89.3438 110.19 85.4367 120.054 77.6036 126.174Z"
 													stroke="url(#paint3_linear_1111_8701)"
 													stroke-width="4"
@@ -413,33 +416,33 @@
 					</div>
 				</div>
 			</section>
-            <section class="principles">
-                <div class="principles__container">
-                    <h2 class="principles__tag">Принципы</h2>
-                    <ul class="principles__body">
-                        <li class="principles__item">
-                            <h3 class="principles__item-title">Локальные решения с&nbsp;национальным подходом</h3>
-                            <p class="principles__item-text">Мы постоянно внедряем новые технологии и&nbsp;методы работы, чтобы улучшить качество услуг и повысить выгоду клиентов</p>
-                        </li>
-                        <li class="principles__item">
-                            <h3 class="principles__item-title">Профессионализм и&nbsp;ответственность</h3>
-                            <p class="principles__item-text">Мы берем на себя полную ответственность за&nbsp;каждое дело, стремясь к максимальной прозрачности и честности в отношениях с&nbsp;клиентами</p>
-                        </li>
-                        <li class="principles__item">
-                            <h3 class="principles__item-title">Ориентация на клиента</h3>
-                            <p class="principles__item-text">Слушаем потребности наших клиентов и&nbsp;адаптируем наши услуги, чтобы обеспечить их максимальное удовлетворение</p>
-                        </li>
-                        <li class="principles__item">
-                            <h3 class="principles__item-title">Инновационный подход</h3>
-                            <p class="principles__item-text">Мы обеспечиваем высококачественные юридические услуги, опираясь на&nbsp;опыт и знания нашей команды, чтобы гарантировать лучшие результаты для клиентов</p>
-                        </li>
-                        <li class="principles__item">
-                            <h3 class="principles__item-title">Непрерывное развитие</h3>
-                            <p class="principles__item-text">Верим в силу командного подхода, где каждый член нашей команды вносит свой вклад в достижение общих целей</p>
-                        </li>
-                    </ul>
-                </div>
-            </section>
+			<section class="principles">
+				<div class="principles__container">
+					<h2 class="principles__tag">Принципы</h2>
+					<ul class="principles__body">
+						<li class="principles__item">
+							<h3 class="principles__item-title">Локальные решения с&nbsp;национальным подходом</h3>
+							<p class="principles__item-text">Мы постоянно внедряем новые технологии и&nbsp;методы работы, чтобы улучшить качество услуг и повысить выгоду клиентов</p>
+						</li>
+						<li class="principles__item">
+							<h3 class="principles__item-title">Профессионализм и&nbsp;ответственность</h3>
+							<p class="principles__item-text">Мы берем на себя полную ответственность за&nbsp;каждое дело, стремясь к максимальной прозрачности и честности в отношениях с&nbsp;клиентами</p>
+						</li>
+						<li class="principles__item">
+							<h3 class="principles__item-title">Ориентация на клиента</h3>
+							<p class="principles__item-text">Слушаем потребности наших клиентов и&nbsp;адаптируем наши услуги, чтобы обеспечить их максимальное удовлетворение</p>
+						</li>
+						<li class="principles__item">
+							<h3 class="principles__item-title">Инновационный подход</h3>
+							<p class="principles__item-text">Мы обеспечиваем высококачественные юридические услуги, опираясь на&nbsp;опыт и знания нашей команды, чтобы гарантировать лучшие результаты для клиентов</p>
+						</li>
+						<li class="principles__item">
+							<h3 class="principles__item-title">Непрерывное развитие</h3>
+							<p class="principles__item-text">Верим в силу командного подхода, где каждый член нашей команды вносит свой вклад в достижение общих целей</p>
+						</li>
+					</ul>
+				</div>
+			</section>
 		</main>
 		@@include("../components/footer.html")
 	</body>

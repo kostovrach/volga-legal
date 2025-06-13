@@ -1,6 +1,6 @@
 (function () {
-	const section = document.querySelector(".advant");
-	const progressBar = document.querySelector(".advant__body-progressbar-inner");
+	const section = document.querySelector(".js-progress-section");
+	const progressBar = document.querySelector(".js-progressbar-inner");
 
 	if (!section || !progressBar) return;
 
