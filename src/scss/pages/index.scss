@@ -2,7 +2,6 @@
 
 .intro {
 	position: relative;
-	//min-height: 100vh;
 	overflow: hidden;
 	&__container {
 		display: flex;
@@ -79,10 +78,10 @@
 		}
 		&-title {
 			font-size: rem(32);
-			font-size: lineScale(32,22,480,1440);
+			font-size: lineScale(32, 22, 480, 1440);
 		}
 		&-desc {
-			font-size: lineScale(16,14,480,1440);
+			font-size: lineScale(16, 14, 480, 1440);
 		}
 	}
 	&__advant {
@@ -440,6 +439,7 @@
 			border-bottom: rem(1) solid rgba($c-D9D9D9, 0.5);
 		}
 		&::before {
+			box-sizing: content-box;
 			content: "";
 			position: absolute;
 			top: 0;
@@ -466,6 +466,7 @@
 			background-color: $c-11493E;
 			color: $c-FFFFFF;
 			max-height: 100%;
+			border: none;
 			grid-template-columns: 15% auto;
 			gap: rem(48);
 			&::before {
@@ -483,26 +484,13 @@
 				translate: 0 0;
 				width: rem(56);
 			}
-			& .affairs__item-body-wrapper {
-				max-height: 100%;
-			}
+			& .affairs__item-body-wrapper,
 			& .affairs__item-name,
-			& .affairs__item-post,
-			& .affairs__item-desc,
-			& .affairs__item-values,
-			& .affairs__item-button {
-				max-width: 100%;
+			& .affairs__item-post {
 				max-height: 100%;
-			}
-			& .affairs__item-body,
-			& .affairs__item-body-wrapper {
-				display: flex;
-				flex-direction: column;
-				gap: 2rem;
 			}
 			& .affairs__item-divider {
 				width: 100%;
-				transition: $duration;
 			}
 		}
 		&--icon {
@@ -515,10 +503,13 @@
 		&-body {
 			position: relative;
 			&-wrapper {
+				display: flex;
+				flex-direction: column;
+				gap: 2rem;
 				color: $c-FFFFFF;
 				max-height: 0;
 				overflow: hidden;
-				transition: $duration;
+				transition: max-height $duration;
 			}
 		}
 		&-logobox {
@@ -545,7 +536,7 @@
 			font-size: rem(14);
 			font-weight: $fw-550;
 			max-height: 0;
-			max-width: 0;
+			transition: max-height calc($duration / 2);
 			overflow: hidden;
 		}
 		&-post {
@@ -553,7 +544,7 @@
 			line-height: 1;
 			opacity: 0.65;
 			max-height: 0;
-			max-width: 0;
+			transition: max-height calc($duration / 2);
 			overflow: hidden;
 		}
 		&-title {
@@ -561,12 +552,12 @@
 			line-height: 160%;
 			font-weight: $fw-550;
 			padding-right: 1.5rem;
+			margin-bottom: 2rem;
 			transition: $duration;
 		}
 		&-desc {
 			font-size: rem(14);
 			opacity: 0.8;
-			max-height: 0;
 			transition: 0;
 			overflow: hidden;
 		}
@@ -576,15 +567,15 @@
 			background-color: $c-FFFFFF;
 			opacity: 0.25;
 			width: 0;
+			transition: width $duration 350ms;
 		}
 		&-values {
 			display: flex;
 			justify-content: space-between;
 			flex-wrap: wrap;
 			gap: 2rem;
-			max-height: 0;
-			overflow: hidden;
 			&-item {
+				max-width: 25ch;
 				display: flex;
 				flex-direction: column;
 				gap: 0.5rem;
@@ -603,7 +594,6 @@
 			align-items: center;
 			gap: 0.5rem;
 			font-size: rem(14);
-			max-height: 0;
 			overflow: hidden;
 			@include icon-hover(horizontal);
 		}
@@ -718,12 +708,18 @@
 		}
 	}
 	.affairs {
-		&__item.active {
-			display: flex;
-			flex-direction: column;
+		// &__item.active {
+		// 	//display: flex;
+		// 	//flex-direction: column;
+		// 	& .affairs__item-logobox {
+		// 		//align-items: flex-start;
+		// 		//text-align: left;
+		// 	}
+		// }
+		&__item {
+			display: block;
 			& .affairs__item-logobox {
-				align-items: flex-start;
-				text-align: left;
+				display: none;
 			}
 		}
 	}
