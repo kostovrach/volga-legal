@@ -9,7 +9,6 @@ import browserSyncLib from 'browser-sync';
 import { deleteAsync } from 'del';
 import { fileURLToPath } from 'url';
 import { dirname, basename, join } from 'path';
-import fonter from 'gulp-fonter';
 import fs from 'fs';
 import fg from 'fast-glob';
 
@@ -46,10 +45,6 @@ const paths = {
       '!src/js/main.min.js'
     ],
     dest: 'src/js/',
-  },
-  fonts: {
-    src: 'src/assets/fonts/**/*',
-    dest: 'src/assets/fonts',
   },
   build: {
     dest: 'build/',
@@ -97,16 +92,6 @@ async function generateScssIndex() {
       console.log(`Skipped (no changes): ${targetFilePath}`);
     }
   }));
-}
-
-// Font
-async function font() {
-  const { default: ttf2woff2 } = await import('gulp-ttf2woff2');
-
-  return src(paths.fonts.src)
-    .pipe(fonter({ formats: ['woff', 'ttf'] }))
-    .pipe(ttf2woff2())
-    .pipe(dest(paths.fonts.dest));
 }
 
 // HTML
@@ -179,6 +164,6 @@ function serve() {
 }
 
 // Основные таски
-export { styles, scripts, font, html, serve, generateScssIndex, copyAssets };
+export { styles, scripts, html, serve, generateScssIndex, copyAssets };
 export const build = series(clean, generateScssIndex, html, styles, scripts, copyToBuild);
 export default series(generateScssIndex, parallel(html, styles, scripts), serve);
