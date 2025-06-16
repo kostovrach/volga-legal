@@ -10,6 +10,7 @@
 		loop: true,
 		autoplay: true,
 		speed: 1500,
+		parallax: true,
 		effect: "creative",
 		creativeEffect: {
 			next: {
