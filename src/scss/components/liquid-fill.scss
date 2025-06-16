@@ -23,35 +23,35 @@
 		translate: -50% 0;
 		&.from-top {
 			transform-origin: top center;
-			animation: liquidFromTop calc($duration / 1.5) linear forwards;
+			animation: liquidFromTop calc($duration / 1.2) linear forwards;
 		}
 		&.from-bottom {
 			transform-origin: bottom center;
-			animation: liquidFromBottom calc($duration / 1.5) linear forwards;
+			animation: liquidFromBottom calc($duration / 1.2) linear forwards;
 		}
 		&.exit-top {
 			transform-origin: top center;
-			animation: liquidExitTop calc($duration / 1.5) linear forwards;
+			animation: liquidExitTop calc($duration / 1.2) linear forwards;
 		}
 		&.exit-bottom {
 			transform-origin: bottom center;
-			animation: liquidExitBottom calc($duration / 1.5) linear forwards;
+			animation: liquidExitBottom calc($duration / 1.2) linear forwards;
 		}
 		&.seamless-to-next {
 			transform-origin: bottom center;
-			animation: liquidSeamlessToNext calc($duration / 1.5) linear forwards;
+			animation: liquidSeamlessToNext calc($duration / 1.2) linear forwards;
 		}
 		&.seamless-to-prev {
 			transform-origin: top center;
-			animation: liquidSeamlessToPrev calc($duration / 1.5) linear forwards;
+			animation: liquidSeamlessToPrev calc($duration / 1.2) linear forwards;
 		}
 		&.seamless-from-prev {
 			transform-origin: top center;
-			animation: liquidSeamlessFromPrev calc($duration / 1.5) linear forwards;
+			animation: liquidSeamlessFromPrev calc($duration / 1.2) linear forwards;
 		}
 		&.seamless-from-next {
 			transform-origin: bottom center;
-			animation: liquidSeamlessFromNext calc($duration / 1.5) linear forwards;
+			animation: liquidSeamlessFromNext calc($duration / 1.2) linear forwards;
 		}
 		@keyframes liquidFromTop {
 			0% {
