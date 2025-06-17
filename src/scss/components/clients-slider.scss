@@ -11,21 +11,42 @@
 	&__body {
 		margin-top: rem(24);
 	}
-	&__slider {
-		pointer-events: none;
-	}
 	&__slide {
+		cursor: default;
 		max-width: rem(223);
 		aspect-ratio: 1/1;
 		background-color: $c-F3F2EE;
+		flex-direction: column;
+		gap: 0.5rem;
 		@include flex-center();
 		&-image-wrapper {
-			height: rem(96);
+			max-height: rem(96);
+			transition: max-height $duration;
 		}
 		&-image {
 			height: 100%;
 			object-fit: contain;
 			filter: saturate(0%);
+			transition: filter $duration;
+		}
+		&-name {
+			font-size: rem(12);
+			max-height: 0;
+			overflow: hidden;
+			transition: max-height $duration;
+		}
+		@media (pointer: fine){
+			&:hover{
+				& .clients__slide-image-wrapper {
+					max-height: rem(80);
+				}
+				& .clients__slide-image {
+					filter: saturate(100%);
+				}
+				& .clients__slide-name {
+					max-height: 2rem;
+				}
+			}
 		}
 	}
 }

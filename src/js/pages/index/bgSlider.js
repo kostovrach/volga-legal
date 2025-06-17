@@ -15,6 +15,7 @@
 		creativeEffect: {
 			next: {
 				translate: ["-100%", 0, 0],
+				opacity: 0,
 			},
 		},
 	};

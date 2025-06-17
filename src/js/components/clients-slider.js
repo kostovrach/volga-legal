@@ -19,14 +19,14 @@
 		spaceBetween: 16,
 		loop: true,
 		slidesPerView: "auto",
+		allowTouchMove: false,
 		waitForTransition: false,
-		disableOnInteraction: false,
-		freeMode: true,
+		speed: 8000,
 		autoplay: {
 			delay: 0,
-			paused: false,
+			disableOnInteraction: false,
+			pauseOnMouseEnter: false,
 		},
-		speed: 8000,
 	};
 
 	new Swiper(sliderEl, clientsSliderParams);
