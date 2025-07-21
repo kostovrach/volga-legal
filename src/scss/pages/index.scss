@@ -99,9 +99,22 @@
 				color: $c-FFFFFF;
 			}
 			&-icon {
-				max-width: rem(55);
-				max-height: rem(55);
+				width: rem(55);
+				height: rem(55);
 				aspect-ratio: 1/1;
+				background-color: $c-FFFFFF;
+				transition: all $duration;
+
+				-webkit-mask-image: var(--src);
+				-webkit-mask-repeat: no-repeat;
+				-webkit-mask-size: contain;
+				-webkit-mask-position: center;
+
+				mask-image: var(--src);
+				mask-repeat: no-repeat;
+				mask-size: contain;
+				mask-position: center;
+				mask-type: alpha;
 			}
 		}
 		&-footer {
