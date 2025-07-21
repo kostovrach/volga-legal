@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ru">
+	<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Волга Лигал - </title>
+    <link rel="stylesheet" href="./css/style.min.css">
+	<link rel="stylesheet" href="./assets/icons/icon-font/style.css">
+</head>
+
+	<body>
+		<header class="header fill js-sticky">
+	<div class="header__container">
+		<a href="index.html">
+			<picture class="header__logo-wrapper header__logo-wrapper--contrast">
+				<img class="header__logo" src="./assets/icons/logo-contrast.svg" alt="#Логотип" />
+			</picture>
+			<picture class="header__logo-wrapper header__logo-wrapper--main">
+				<img class="header__logo" src="./assets/icons/logo-main.svg" alt="#Логотип" />
+			</picture>
+		</a>
+		<ul class="header__nav" role="navigation">
+			<li class="header__nav-item "><a href="about.html">О&nbsp;компании</a></li>
+			<li class="header__nav-item "><a href="advant.html">Достижения</a></li>
+			<li class="header__nav-item "><a href="practices.html">Практики</a></li>
+			<li class="header__nav-item "><a href="affairs.html">Дела</a></li>
+			<li class="header__nav-item "><a href="news.html">Новости</a></li>
+			<li class="header__nav-item "><a href="career.html">Карьера</a></li>
+			<li class="header__nav-item "><a href="contacts.html">Контакты</a></li>
+		</ul>
+		<div class="header__touch-wrapper">
+			<div class="header__lang">
+				<div class="header__lang-current">
+					<span class="header__lang-current--text"></span>
+					<div class="header__lang-current--icon-wrapper">
+						<i class="header__lang-current--icon icon-mark"></i>
+					</div>
+				</div>
+				<ul class="header__lang-list">
+					<li class="header__lang-list-item" data-lang="ru">RU</li>
+					<li class="header__lang-list-item" data-lang="en">EN</li>
+					<li class="header__lang-list-item" data-lang="fr">FR</li>
+					<li class="header__lang-list-item" data-lang="jp">JP</li>
+				</ul>
+			</div>
+			<div class="burger fill" data-menu-open role="button">
+    <span></span>
+</div>
+		</div>
+	</div>
+</header>
+<dialog id="menu" class="menu fill">
+	<div class="menu__container">
+		<div class="menu__button-close icon-cross" data-menu-close></div>
+		<ul class="menu__nav" role="navigation">
+			<li class="menu__nav-item"><a href="about.html">О&nbsp;компании</a><i class="menu__nav-item--icon icon-mark"></i></li>
+			<li class="menu__nav-item"><a href="advant.html">Достижения</a><i class="menu__nav-item--icon icon-mark"></i></li>
+			<li class="menu__nav-item"><a href="practices.html">Практики</a><i class="menu__nav-item--icon icon-mark"></i></li>
+			<li class="menu__nav-item"><a href="affairs.html">Дела</a><i class="menu__nav-item--icon icon-mark"></i></li>
+			<li class="menu__nav-item"><a href="news.html">Новости</a><i class="menu__nav-item--icon icon-mark"></i></li>
+			<li class="menu__nav-item"><a href="career.html">Карьера</a><i class="menu__nav-item--icon icon-mark"></i></li>
+			<li class="menu__nav-item"><a href="contacts.html">Контакты</a><i class="menu__nav-item--icon icon-mark"></i></li>
+		</ul>
+	</div>
+</dialog>
+
+		<main class="not-found">
+			<img class="not-found__substrate" src="./assets/images/404.svg" />
+			<div class="not-found__container">
+				<div class="not-found__titlebox">
+					<h1 class="not-found__title">Видимо, вы потерялись :(</h1>
+					<p class="not-found__text">Запрашиваемая страница не найдена. Вернитесь на главную или&nbsp;повторите попытку позже</p>
+					<a class="not-found__button" href="index.html">
+						На главную
+						<div class="not-found__button--icon-wrapper">
+							<i class="not-found__button--icon icon-arrow"></i>
+						</div>
+					</a>
+				</div>
+				<div class="not-found__image-wrapper">
+					<img class="not-found__image" src="./assets/images/diver.png" alt="#" />
+					<svg class="not-found__image-filter">
+						<filter id="water-distortion">
+							<feTurbulence type="turbulence" baseFrequency="0.01 0.02" numOctaves="3" result="turbulence">
+								<animate attributeName="baseFrequency" dur="30s" values="0.01 0.02; 0.02 0.01; 0.01 0.02" repeatCount="indefinite" />
+							</feTurbulence>
+							<feDisplacementMap in="SourceGraphic" in2="turbulence" scale="15" xChannelSelector="R" yChannelSelector="G" />
+						</filter>
+					</svg>
+				</div>
+			</div>
+		</main>
+		<footer class="footer--label">
+			<div class="footer--label-container">
+				<ul class="footer--label-studio">
+					<li class="footer--label-studio-item--text">Разработка и поддержка сайта:</li>
+					<li class="footer--label-studio-item--image-wrapper">
+						<a href="https://intheplace.ru" target="_blank">
+							<picture class="footer--label-studio-item--image">
+								<img src="./assets/icons/theplace.svg" alt="ThePlace" />
+							</picture>
+						</a>
+					</li>
+				</ul>
+			</div>
+		</footer>
+		<script src="./js/main.min.js"></script>
+	</body>
+</html>
