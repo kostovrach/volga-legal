@@ -98,6 +98,11 @@
 				font-size: rem(14);
 				color: $c-FFFFFF;
 			}
+			&-icon {
+				max-width: rem(55);
+				max-height: rem(55);
+				aspect-ratio: 1/1;
+			}
 		}
 		&-footer {
 			width: 100%;

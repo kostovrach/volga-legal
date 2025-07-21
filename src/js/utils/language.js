@@ -8,11 +8,6 @@
 
 	if (!buttonLang || !currentLang || !langItems.length) return;
 
-	function setLang(langCode) {
-		localStorage.setItem('lang', langCode);
-		currentLang.textContent = langCode.toUpperCase();
-	}
-
 	buttonLang.addEventListener('click', (e) => {
 		e.stopPropagation();
 		langSwitcher.classList.toggle('open');
@@ -21,7 +16,7 @@
 	langItems.forEach(item => {
 		item.addEventListener('click', () => {
 			const selectedLang = item.getAttribute('data-lang');
-			setLang(selectedLang);
+			currentLang.textContent = selectedLang.toUpperCase();
 			langSwitcher.classList.remove('open');
 		});
 	});
@@ -34,10 +29,5 @@
 
 	window.addEventListener("scroll", () => {
 		langSwitcher.classList.remove('open');
-	});
-
-	window.addEventListener('DOMContentLoaded', () => {
-		const savedLang = localStorage.getItem('lang') || 'ru';
-		setLang(savedLang);
 	});
 })();

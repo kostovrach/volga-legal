@@ -153,6 +153,7 @@
 		grid-template-columns: 30% auto 20%;
 		padding: calc(rem(96) / 2) 0;
 		&-icon-wrapper {
+			font-size: rem(32);
 			max-width: 2rem;
 			aspect-ratio: 1/1;
 			overflow: hidden;
